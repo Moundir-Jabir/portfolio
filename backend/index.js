@@ -12,12 +12,16 @@ mongoose.connect(process.env.DATABASE, {
 
 //Routers
 const authRouter = require('./routes/auth')
+const userRouter = require('./routes/user')
+const experienceRouter = require('./routes/experience')
 
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors())
 
 app.use('/api/auth', authRouter)
+app.use('/api/user', userRouter)
+app.use('/api/experience', experienceRouter)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
