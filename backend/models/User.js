@@ -16,7 +16,8 @@ const userSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        trim: true
+        trim: true,
+        maxlength: 500
     },
     email: {
         type: String,
@@ -48,10 +49,6 @@ const userSchema = new mongoose.Schema({
     },
     city: {
         type: String
-    },
-    links: {
-        type: Array,
-        default: []
     }
 }, { timestamps: true })
 
