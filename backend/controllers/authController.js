@@ -18,6 +18,7 @@ exports.login = (req, res) => {
         user.salt = undefined
         user.image1 = undefined
         user.image2 = undefined
+        user.cv = undefined
         return res.json({ token, user })
     })
 }
