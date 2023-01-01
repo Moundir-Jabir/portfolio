@@ -14,6 +14,8 @@ mongoose.connect(process.env.DATABASE, {
 const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
 const experienceRouter = require('./routes/experience')
+const skillRouter = require('./routes/skill')
+const portfolioRouter = require('./routes/portfolio')
 
 app.use(express.json())
 app.use(cookieParser())
@@ -22,6 +24,8 @@ app.use(cors())
 app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
 app.use('/api/experience', experienceRouter)
+app.use('/api/skill', skillRouter)
+app.use('/api/portfolio', portfolioRouter)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {

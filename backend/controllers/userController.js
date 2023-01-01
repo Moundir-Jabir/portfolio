@@ -19,7 +19,6 @@ exports.updateUser = (req, res) => {
             city: Joi.string().required().max(50),
             description: Joi.string().required().max(500),
             email: Joi.string().required().max(50).email(),
-            password: Joi.string().required().max(50),
             phone: Joi.string().required().max(20)
         })
         const { error } = schema.validate(fields)
@@ -70,7 +69,7 @@ exports.updateUser = (req, res) => {
 }
 
 exports.getUser = (req, res) => {
-    User.findById("63ab65a459555f04ce69fd21").select('-hashed_password -salt -image1 -image2 -cv').exec((err, user) => {
+    User.findById("63ab65a459555f04ce69fd21").select('-hashed_password -_id -salt -image1 -image2 -cv -createdAt -updatedAt -__v').exec((err, user) => {
         if (err || !user)
             return res.status(404).json({
                 erreur: 'user not found'

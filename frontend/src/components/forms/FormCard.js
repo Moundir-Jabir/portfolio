@@ -6,9 +6,12 @@ const FormCard = (props) => {
     const { submit, title, button, inputs, setState, state } = props
 
     const update = (e) => {
+        let value = e.target.value
+        if (e.target.type == 'file')
+            value = e.target.files[0]
         setState({
             ...state,
-            [e.target.name]: e.target.value
+            [e.target.name]: value
         })
     }
 
